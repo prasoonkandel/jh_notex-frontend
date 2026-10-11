@@ -110,5 +110,25 @@ body{
     border: none;
     border-radius: 10px;
     background: linear-gradient(135deg,#6a11cb,#2575fc);
-    color:antiquewhite
+    color:antiquewhite;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
+.signup:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37,117,252,0.3);
+}
+.login{
+    text-align: center;
+    margin-top: 22px;
+    color:#777;
+    font-size: 14px;
+}
+.login a{
+    color:#2575fc;
+    font-weight: bold;
+    text-decoration: none;
+}
+
