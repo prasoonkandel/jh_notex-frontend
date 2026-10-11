@@ -43,21 +43,20 @@ input{
     outline: none;
 }
 input:focus{
-    border-color: #6a11cb;
-    box-shadow: 0 0 5px #6a11cd50;
+    border-color: #5b1800;
 }
 .forget{
     text-align: right;
     margin-bottom: 20px;
 }
 a{
-    color:#6a11cd;
+    color:#ab3300;
     text-decoration: none;
 }
 button{
     width:100%;
     padding: 13px;
-    background: linear-gradient(90deg,#6a11cd,#2575fc);
+    background: #222020;
     color: whitesmoke;
     border:none;
     border-radius: 8px;
@@ -68,7 +67,6 @@ button{
 }
 button:hover{
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px #6a11cb50;
 }
 .signup{
     margin-top: 22px;
