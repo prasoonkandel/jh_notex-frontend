@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F3E4C9">
+    <meta name="description" content="Create a JingHua Notex account to make space for your ideas.">
+    <title>Sign up — JingHua Notex</title>
+    <link rel="stylesheet" href="../login/style.css">
+    <script src="signup.js" defer></script>
+</head>
+<body>
+    <header class="login-header">
+        <a class="login-brand" href="../" aria-label="JingHua Notex homepage">
+            JingHua <strong>Notex</strong>
+        </a>
+        <a class="home-link" href="../">Go Back Home</a>
+    </header>
+
+    <main class="login-main">
+        <section class="login-content" aria-labelledby="signup-title">
+            <h1 id="signup-title">Create your account</h1>
+            <p class="login-intro">Make a little room for your ideas.</p>
+
+            <form class="login-form" id="signup-form" novalidate>
+                <div class="form-field">
+                    <label for="username">Username</label>
+                    <input
+                        id="username"
+                        name="username"
+                        type="text"
+                        autocomplete="username"
+                        autocapitalize="none"
+                        spellcheck="false"
+                        required
+                        aria-describedby="username-error">
+                    <p class="field-error" id="username-error"></p>
+                </div>
+
+                <div class="form-field">
+                    <label for="password">Password</label>
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        autocomplete="new-password"
+                        required
+                        aria-describedby="password-error">
+                    <p class="field-error" id="password-error"></p>
+                </div>
+
+                <div class="form-field">
+                    <label for="confirm-password">Confirm password</label>
+                    <input
+                        id="confirm-password"
+                        name="confirm-password"
+                        type="password"
+                        autocomplete="new-password"
+                        required
+                        aria-describedby="confirm-password-error">
+                    <p class="field-error" id="confirm-password-error"></p>
+                </div>
+
+                <p class="form-message" id="form-message" role="alert" aria-live="polite"></p>
+
+                <button class="login-button" type="submit">Create account</button>
+            </form>
+
+            <p class="signup-prompt">
+                Already have an account? <a href="../login/">Log in</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="login-footer">
+        <span>JingHua Notex</span>
+        <span>Made by JingHua Alxi Gang</span>
+    </footer>
+</body>
+</html>
