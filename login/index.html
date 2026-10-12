@@ -1,68 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#F3E4C9">
-    <meta name="description" content="Log in to JingHua Notex to continue to your notes.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#F3E4C9" />
+    <meta
+      name="description"
+      content="Log in to JingHua Notex to continue to your notes." />
     <title>Log in</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../part.css" />
     <script src="login.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="login-header">
-        <a class="login-brand" href="../" aria-label="JingHua Notex homepage">
-            JingHua <strong>Notex</strong>
-        </a>
-        <a class="home-link" href="../">Go Back Home</a>
+      <a class="login-brand" href="../"> JingHua <strong>Notex</strong> </a>
+      <a class="home-link" href="../">Go Back Home</a>
     </header>
 
     <main class="login-main">
-        <section class="login-content" aria-labelledby="login-title">
-            <h1 id="login-title">Welcome back</h1>
-            <p class="login-intro">Log in to continue to your notes.</p>
+      <section class="login-content">
+        <h1 id="login-title">Welcome back</h1>
+        <p class="login-intro">Log in to continue to your notes.</p>
 
-            <form class="login-form" id="login-form" novalidate>
-                <div class="form-field">
-                    <label for="username">Username</label>
-                    <input
-                        id="username"
-                        name="username"
-                        type="text"
-                        autocomplete="username"
-                        autocapitalize="none"
-                        spellcheck="false"
-                        required
-                        aria-describedby="username-error">
-                    <p class="field-error" id="username-error"></p>
-                </div>
+        <form class="login-form" id="login-form">
+          <div class="form-field">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              autocomplete="username"
+              autocapitalize="none"
+              spellcheck="false"
+              required />
+            <p class="field-error" id="username-error"></p>
+          </div>
 
-                <div class="form-field">
-                    <label for="password">Password</label>
-                    <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        autocomplete="current-password"
-                        required
-                        aria-describedby="password-error">
-                    <p class="field-error" id="password-error"></p>
-                </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required />
+            <p class="field-error" id="password-error"></p>
+          </div>
 
-                <p class="form-message" id="form-message" role="alert" aria-live="polite"></p>
+          <p class="form-message" id="form-message" role="alert"></p>
 
-                <button class="login-button" type="submit">Log in</button>
-            </form>
+          <button class="login-button" type="submit">Log in</button>
+        </form>
 
-            <p class="signup-prompt">
-                Don’t have an account? <a href="../signup/">Sign up</a>
-            </p>
-        </section>
+        <p class="signup-prompt">
+          Don’t have an account? <a href="../signup/">Sign up</a>
+        </p>
+      </section>
     </main>
 
     <footer class="login-footer">
-        <span>JingHua Notex</span>
-        <span>Made by JingHua Alxi Gang</span>
+      <span>JingHua Notex</span>
+      <span>Made by JingHua Alxi Gang</span>
     </footer>
-</body>
+  </body>
 </html>
