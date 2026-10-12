@@ -262,3 +262,38 @@ button:focus-visible {
     animation-iteration-count: 1 !important;
   }
 }
+
+.back-home {
+  position: fixed;
+  top: 20px;
+  left: 40px;
+  z-index: 1000;
+  min-height: 49px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    border-color var(--transition);
+
+  cursor: pointer;
+  color: var(--color-sage);
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+.back-home:hover {
+  color: var(--color-navy);
+  background: var(--color-sage);
+  border-color: var(--color-navy);
+}
