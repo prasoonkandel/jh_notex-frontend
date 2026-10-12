@@ -15,7 +15,7 @@ body {
   margin: 0;
   color: var(--navy);
   background: var(--cream);
-  font-family: "Nunito Sans", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
@@ -39,7 +39,8 @@ a:focus-visible {
 .site-header {
   position: relative;
   z-index: 2;
-  background: var(--cream);
+  background: var(--navy);
+  color: var(--cream);
   border-bottom: 1px solid var(--border);
 }
 
@@ -85,7 +86,7 @@ a:focus-visible {
 
 .nav-link:hover,
 .footer-top:hover {
-  color: var(--brown);
+  color: var(--sage);
 }
 
 /* Buttons */
@@ -101,8 +102,7 @@ a:focus-visible {
   border: 1px solid transparent;
   border-radius: var(--radius);
 
-  font-family: "Nunito Sans", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.3;
 
@@ -112,6 +112,18 @@ a:focus-visible {
     border-color var(--transition);
 }
 
+.button-nav {
+  color: var(--navy);
+  background: var(--cream);
+  border-color: var(--brown);
+}
+
+.button-nav:hover {
+  color: var(--cream);
+  background: var(--brown);
+  border-color: var(--navy);
+}
+
 .button-primary {
   color: var(--cream);
   background: var(--navy);
@@ -119,9 +131,9 @@ a:focus-visible {
 }
 
 .button-primary:hover {
-  color: var(--navy);
-  background: var(--sage);
-  border-color: var(--sage);
+  color: var(--cream);
+  background: var(--brown);
+  border-color: var(--brown);
 }
 
 .button-secondary {
