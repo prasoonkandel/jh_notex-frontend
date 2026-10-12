@@ -1,0 +1,46 @@
+:root {
+  --navy: #0a2947;
+  --cream: #f3e4c9;
+  --sage: #d3d4c0;
+  --brown: #8b5e3c;
+  --muted: #625a4d;
+  --border: rgba(10, 41, 71, 0.16);
+  --page-width: 1160px;
+  --page-padding: 32px;
+  --home-page-padding: var(--page-padding);
+  --login-page-padding: var(--page-padding);
+  --radius: 9px;
+  --transition: 200ms ease;
+  --login-radius: 8px;
+  --login-transition: 180ms ease;
+  --color-navy: var(--navy);
+  --color-cream: var(--cream);
+  --color-sage: var(--sage);
+  --color-brown: var(--brown);
+  --color-muted: rgba(10, 41, 71, 0.74);
+  --color-border: rgba(10, 41, 71, 0.24);
+}
+
+@media (max-width: 700px) {
+  :root {
+    --home-page-padding: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --login-page-padding: 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --home-page-padding: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --login-page-padding: 18px;
+  }
+}
