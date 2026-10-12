@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const currentYear = document.querySelector("#current-year");
+  const currentYear = document.querySelector("#current-year");
 
-    if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
-    }
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
 });
