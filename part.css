@@ -208,15 +208,6 @@ a:focus-visible {
   text-align: center;
 }
 
-.section-kicker {
-  margin: 0 0 17px;
-  color: var(--sage);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.7px;
-  line-height: 1.6;
-}
-
 .how-heading h2 {
   margin: 0;
   font-family: "DM Sans", Arial, sans-serif;
@@ -288,8 +279,8 @@ a:focus-visible {
 
 .closing-cta {
   padding: 42px 0;
-  color: var(--cream);
-  background: var(--brown);
+  color: var(--navy);
+  background: var(--cream);
 }
 
 .closing-layout {
@@ -301,7 +292,7 @@ a:focus-visible {
 
 .closing-layout h2 {
   margin: 0;
-  color: var(--cream);
+  color: var(--navy);
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(27px, 3vw, 35px);
   font-weight: 500;
@@ -310,21 +301,21 @@ a:focus-visible {
 }
 
 .button-light {
-  color: var(--navy);
-  background: var(--cream);
-  border-color: var(--cream);
+  color: var(--sage);
+  background: var(--navy);
+  border-color: var(--navy);
 }
 
 .button-light:hover {
-  color: var(--cream);
-  background: var(--navy);
+  color: var(--navy);
+  background: var(--sage);
   border-color: var(--navy);
 }
 
 /* Footer */
 
 .site-footer {
-  background: var(--cream);
+  background: var(--navy);
   border-top: 1px solid var(--border);
 }
 
