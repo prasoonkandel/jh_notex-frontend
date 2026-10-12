@@ -101,15 +101,6 @@ button:focus-visible {
     width: min(100%, 432px);
 }
 
-.login-eyebrow {
-    margin: 0 0 14px;
-    color: var(--color-navy);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1.5;
-}
-
 .login-content h1 {
     margin: 0;
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -217,6 +208,26 @@ button:focus-visible {
 .login-button:disabled {
     cursor: wait;
     opacity: 0.72;
+}
+
+.signup-prompt {
+    margin: 24px 0 0;
+    color: var(--color-muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+.signup-prompt a {
+    color: var(--color-navy);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--color-brown);
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+}
+
+.signup-prompt a:hover {
+    color: var(--color-brown);
 }
 
 .login-footer {
