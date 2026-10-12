@@ -3,39 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notex</title>
+
+    <meta name="theme-color" content="#F3E4C9">
+    <meta
+        name="description"
+        content="JingHua Notex is a simple space to write, organize, and keep your ideas in one place."
+    >
+
+    <title>JingHua Notex</title>
+
     <link rel="stylesheet" href="part.css">
+    <script src="app.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>NOTEX</h1>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-        </nav>
+    <header class="site-header">
+        <div class="container header-inner">
 
-        <a href="./login/" class="signup">Sign Up</a>
+            <a class="brand" href="#home" aria-label="JingHua Notex home">
+                <span class="brand-name">JingHua <strong>Notex</strong></span>
+            </a>
+
+            <nav class="site-nav" aria-label="Main navigation">
+                <a class="nav-link" href="#home">Home</a>
+                <a class="nav-link" href="#how-it-works">About</a>
+
+                <a class="button button-primary nav-cta" href="./login/">
+                    Get started <span aria-hidden="true">↗</span>
+                </a>
+            </nav>
+
+        </div>
     </header>
 
-    <main id="home">
-        <section class="hero">
+    <main>
 
-            <div class="hero-text">
-                <p class="small-text">A SIMPLE SPACE FOR YOUR IDEAS</p>
+        <section class="hero" id="home">
+            <div class="container hero-content">
 
-                <h2>Your Notes.<br>Your Space.</h2>
+                <div class="hero-copy">
 
-                <p class="description">
-                    Notex helps you write, organize and keep your ideas
-                    in one simple place.
-                </p>
+                    <h1>JingHua <span>Notex</span></h1>
 
-                <div class="buttons">
-                    <a href="./login" class="btn signup-btn">Sign Up</a>
-                    <a href="#about" class="btn learn-btn">Learn More</a>
+                    <p class="hero-description">
+                        JingHua Notex helps you write, organize, and keep your ideas in one simple place.
+                        Less looking for things. More room to think.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="./login/">
+                            Get started <span aria-hidden="true">↗</span>
+                        </a>
+
+                        <a class="button button-secondary" href="#how-it-works">
+                            See how it works <span aria-hidden="true">↓</span>
+                        </a>
+                    </div>
                 </div>
+
+            </div>
+        </section>
+
+        <section
+            class="how-it-works"
+            id="how-it-works"
+            aria-labelledby="getting-started-title"
+        >
+            <div class="container">
+
+                <div class="how-heading">
+                    <p class="section-kicker">GETTING STARTED</p>
+
+                    <h2 id="getting-started-title">
+                        Get started with
+                        <span>JingHua Notex</span>
+                    </h2>
+
+                    <p>Three simple steps to give your ideas a place.</p>
+                </div>
+
+                <ol class="steps-list">
+
+                    <li class="step-item">
+                        <span class="step-index">01</span>
+
+                        <div class="step-copy">
+                            <h3>Log in or register</h3>
+                            <p>
+                                Create an account with a username and password, or log in to your account.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="step-item">
+                        <span class="step-index">02</span>
+
+                        <div class="step-copy">
+                            <h3>Create a new note</h3>
+                            <p>
+                                Start a fresh note whenever you have something to save.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="step-item">
+                        <span class="step-index">03</span>
+
+                        <div class="step-copy">
+                            <h3>Write whatever you want</h3>
+                            <p>
+                                Capture an idea, a reminder, or anything else on your mind.
+                            </p>
+                        </div>
+                    </li>
+
+                </ol>
+
+            </div>
+        </section>
+
+        <section class="closing-cta">
+            <div class="container closing-layout">
+                <h2>JingHua Notex</h2>
+
+                <a class="button button-light" href="./login/">
+                    Get started <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <a class="brand footer-brand" href="#home">
+                <span class="brand-name">JingHua <strong>Notex</strong></span>
+            </a>
+
+            <a class="footer-top" href="#home">Back to top ↑</a>
+
+            <span class="copyright">
+                © <span id="current-year">2026</span> JingHua Notex
+            </span>
+
+        </div>
+    </footer>
 
 </body>
 </html>
