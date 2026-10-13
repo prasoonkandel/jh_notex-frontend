@@ -8,8 +8,8 @@ let isLoading = false;
 function showLoading() {
   isLoading = true;
 
-  usernameInput.readOnly = true;
-  passwordInput.readOnly = true;
+  usernameInput.disabled = true;
+  passwordInput.disabled = true;
 
   formMessage.style.color = "#0a2947";
   formMessage.textContent = "Loading...";
@@ -18,8 +18,8 @@ function showLoading() {
 function hideLoading() {
   isLoading = false;
 
-  usernameInput.readOnly = false;
-  passwordInput.readOnly = false;
+  usernameInput.disabled = false;
+  passwordInput.disabled = false;
 }
 
 usernameInput.addEventListener("focus", () => {
