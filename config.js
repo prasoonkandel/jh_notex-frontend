@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://jh_notex.vercel.app/";
+const API_BASE_URL = "https://jh-notex.vercel.app/";
 
 const API_ENDPOINTS = {
   register: "/api/auth/register",
