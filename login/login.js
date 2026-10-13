@@ -3,17 +3,35 @@ const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 const formMessage = document.querySelector("#form-message");
 
+let isLoading = false;
+
 function showLoading() {
+  isLoading = true;
+
+  usernameInput.readOnly = true;
+  passwordInput.readOnly = true;
+
   formMessage.style.color = "#0a2947";
   formMessage.textContent = "Loading...";
 }
 
+function hideLoading() {
+  isLoading = false;
+
+  usernameInput.readOnly = false;
+  passwordInput.readOnly = false;
+}
+
 usernameInput.addEventListener("focus", () => {
-  formMessage.textContent = "";
+  if (!isLoading) {
+    formMessage.textContent = "";
+  }
 });
 
 passwordInput.addEventListener("focus", () => {
-  formMessage.textContent = "";
+  if (!isLoading) {
+    formMessage.textContent = "";
+  }
 });
 
 loginForm.addEventListener("submit", async (event) => {
@@ -49,9 +67,11 @@ loginForm.addEventListener("submit", async (event) => {
     if (!response.ok) {
       throw new Error(result.detail || `Login failed: ${response}`);
     }
+    hideLoading();
     formMessage.style.color = "green";
     formMessage.textContent = result.message || "Login successful!";
   } catch (error) {
+    hideLoading();
     formMessage.style.color = "#9E2A2B";
     formMessage.textContent = error.message;
   }
