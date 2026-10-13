@@ -550,6 +550,6 @@ button,
 .button:active,
 button:active,
 .btn:active {
-  transform: scale(0.99) !important;
+  transform: scale(0.97) !important;
   opacity: 0.85 !important;
 }
