@@ -3,22 +3,48 @@ const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 const formMessage = document.querySelector("#form-message");
 
-loginForm.addEventListener("submit", (event) => {
+function showLoading() {
+  formMessage.style.color = "#0a2947";
+  formMessage.textContent = "Loading...";
+}
+
+loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const usernameMissing = usernameInput.value.trim() === "";
-  const passwordMissing = passwordInput.value === "";
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
 
-  setFieldError(usernameInput, usernameMissing ? "Enter your username." : "");
-  setFieldError(passwordInput, passwordMissing ? "Enter your password." : "");
+  if (!username || !password) {
+    formMessage.style.color = "#9E2A2B";
+    formMessage.textContent = "Please enter both username and password.";
 
-  formMessage.textContent = "";
-
-  if (usernameMissing || passwordMissing) {
-    (usernameMissing ? usernameInput : passwordInput).focus();
+    (!username ? usernameInput : passwordInput).focus();
     return;
   }
 
-  formMessage.textContent =
-    "Sign-in is unavailable because authentication is not connected yet.";
+  showLoading();
+
+  const data = { username, password };
+  const url = API_ENDPOINTS.login;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.detail || `Login failed: ${response}`);
+    }
+    formMessage.style.color = "green";
+    formMessage.textContent = result.message || "Login successful!";
+  } catch (error) {
+    formMessage.style.color = "#9E2A2B";
+    formMessage.textContent = error.message;
+  }
 });
