@@ -538,3 +538,18 @@ a:focus-visible {
     animation-iteration-count: 1 !important;
   }
 }
+
+.button,
+button,
+.btn {
+  transition:
+    transform 120ms ease,
+    opacity 120ms ease;
+}
+
+.button:active,
+button:active,
+.btn:active {
+  transform: scale(0.99) !important;
+  opacity: 0.85 !important;
+}
