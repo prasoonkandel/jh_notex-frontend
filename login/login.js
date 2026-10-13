@@ -8,6 +8,14 @@ function showLoading() {
   formMessage.textContent = "Loading...";
 }
 
+usernameInput.addEventListener("focus", () => {
+  formMessage.textContent = "";
+});
+
+passwordInput.addEventListener("focus", () => {
+  formMessage.textContent = "";
+});
+
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
