@@ -3,37 +3,6 @@ const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 const formMessage = document.querySelector("#form-message");
 
-let isLoading = false;
-
-function showLoading() {
-  isLoading = true;
-
-  usernameInput.disabled = true;
-  passwordInput.disabled = true;
-
-  formMessage.style.color = "#0a2947";
-  formMessage.textContent = "Loading...";
-}
-
-function hideLoading() {
-  isLoading = false;
-
-  usernameInput.disabled = false;
-  passwordInput.disabled = false;
-}
-
-usernameInput.addEventListener("focus", () => {
-  if (!isLoading) {
-    formMessage.textContent = "";
-  }
-});
-
-passwordInput.addEventListener("focus", () => {
-  if (!isLoading) {
-    formMessage.textContent = "";
-  }
-});
-
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
