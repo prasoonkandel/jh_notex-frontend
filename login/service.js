@@ -1,3 +1,15 @@
+const signupForm = document.querySelector("#signup-form");
+const usernameInput = document.querySelector("#username");
+const passwordInput = document.querySelector("#password");
+const confirmPasswordInput = document.querySelector("#confirm-password");
+const formMessage = document.querySelector("#form-message");
+
+if (confirmPasswordInput) {
+  const fields = [usernameInput, passwordInput, confirmPasswordInput];
+} else {
+  const fields = [usernameInput, passwordInput];
+}
+
 let isLoading = false;
 
 function showLoading() {
