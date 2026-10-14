@@ -30,14 +30,14 @@ function hideLoading() {
   confirmPasswordInput.disabled = false;
 }
 
-usernameInput.addEventListener("focus", () => {
+function clearMesaageOnFocus() {
   if (!isLoading) {
-    formMessage.textContent = "";
+    for (field in fields) {
+      feild.addEventListener("focus", () => {
+        formMessage.textContent = "";
+      });
+    }
   }
-});
+}
 
-passwordInput.addEventListener("focus", () => {
-  if (!isLoading) {
-    formMessage.textContent = "";
-  }
-});
+clearMessageOnFocus();
