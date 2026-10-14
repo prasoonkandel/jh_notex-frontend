@@ -544,7 +544,10 @@ button,
 .btn {
   transition:
     transform 120ms ease,
-    opacity 120ms ease;
+    opacity 120ms ease,
+    color var(--transition),
+    background-color var(--transition),
+    border-color var(--transition);
 }
 
 .button:active,
