@@ -1,25 +1,22 @@
-const signupForm = document.querySelector("#signup-form");
 const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 const confirmPasswordInput = document.querySelector("#confirm-password");
 const formMessage = document.querySelector("#form-message");
 
-if (confirmPasswordInput) {
-  const fields = [usernameInput, passwordInput, confirmPasswordInput];
-} else {
-  const fields = [usernameInput, passwordInput];
-}
+const fields = confirmPasswordInput
+  ? [usernameInput, passwordInput, confirmPasswordInput]
+  : [usernameInput, passwordInput];
 
 let isLoading = false;
 
 function disableFields() {
-  for (field in fields) {
+  for (const field of fields) {
     field.disabled = true;
   }
 }
 
 function enableFields() {
-  for (field in fields) {
+  for (const field of fields) {
     field.disabled = false;
   }
 }
@@ -40,8 +37,8 @@ function hideLoading() {
 
 function clearMesaageOnFocus() {
   if (!isLoading) {
-    for (field in fields) {
-      feild.addEventListener("focus", () => {
+    for (const field of fields) {
+      field.addEventListener("focus", () => {
         formMessage.textContent = "";
       });
     }
@@ -55,5 +52,5 @@ function showErrorMessage(message) {
 
 function showSuccessMessage(message) {
   formMessage.style.color = "#007910";
-  formMessage.textContent - `${message}`;
+  formMessage.textContent = `${message}`;
 }

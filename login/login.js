@@ -1,7 +1,4 @@
 const loginForm = document.querySelector("#login-form");
-const usernameInput = document.querySelector("#username");
-const passwordInput = document.querySelector("#password");
-const formMessage = document.querySelector("#form-message");
 
 clearMesaageOnFocus();
 
@@ -13,7 +10,6 @@ loginForm.addEventListener("submit", async (event) => {
 
   if (!username || !password) {
     showErrorMessage("Please enter both username and password.");
-
     if (username) {
       passwordInput.focus();
     } else {
@@ -39,12 +35,14 @@ loginForm.addEventListener("submit", async (event) => {
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(result.detail || `Login failed: ${response}`);
+      throw new Error(
+        result.detail || `Login failed due to an unexpected error.`,
+      );
     }
-    hideLoading();
     showSuccessMessage(result.message || "Login successful!");
-  } catch (error) {
     hideLoading();
+  } catch (error) {
     showErrorMessage(error.message);
+    hideLoading();
   }
 });
