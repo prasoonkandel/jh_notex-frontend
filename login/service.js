@@ -40,4 +40,12 @@ function clearMesaageOnFocus() {
   }
 }
 
-clearMessageOnFocus();
+function showErrorMessage(message) {
+  formMessage.style.color = "#9E2A2B";
+  formMessage.textContent = `${message}`;
+}
+
+function showSuccessMessage(message) {
+  formMessage.style.color = "#007910";
+  formMessage.textContent - `${message}`
+}
