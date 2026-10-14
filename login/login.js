@@ -3,6 +3,8 @@ const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 const formMessage = document.querySelector("#form-message");
 
+clearMesaageOnFocus();
+
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -10,10 +12,13 @@ loginForm.addEventListener("submit", async (event) => {
   const password = passwordInput.value.trim();
 
   if (!username || !password) {
-    formMessage.style.color = "#9E2A2B";
-    formMessage.textContent = "Please enter both username and password.";
+    showErrorMessage("Please enter both username and password.");
 
-    (!username ? usernameInput : passwordInput).focus();
+    if (username) {
+      passwordInput.focus();
+    } else {
+      usernameInput.focus();
+    }
     return;
   }
 
@@ -37,11 +42,9 @@ loginForm.addEventListener("submit", async (event) => {
       throw new Error(result.detail || `Login failed: ${response}`);
     }
     hideLoading();
-    formMessage.style.color = "green";
-    formMessage.textContent = result.message || "Login successful!";
+    showSuccessMessage(result.message || "Login successful!");
   } catch (error) {
     hideLoading();
-    formMessage.style.color = "#9E2A2B";
-    formMessage.textContent = error.message;
+    showErrorMessage(error.message);
   }
 });

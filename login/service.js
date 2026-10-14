@@ -12,12 +12,22 @@ if (confirmPasswordInput) {
 
 let isLoading = false;
 
+function disableFields() {
+  for (field in fields) {
+    field.disabled = true;
+  }
+}
+
+function enableFields() {
+  for (field in fields) {
+    field.disabled = false;
+  }
+}
+
 function showLoading() {
   isLoading = true;
 
-  usernameInput.disabled = true;
-  passwordInput.disabled = true;
-  confirmPasswordInput.disabled = true;
+  disableFields();
 
   formMessage.style.color = "#0a2947";
   formMessage.textContent = "Loading ...";
@@ -25,9 +35,7 @@ function showLoading() {
 
 function hideLoading() {
   isLoading = false;
-  usernameInput.disabled = false;
-  passwordInput.disabled = false;
-  confirmPasswordInput.disabled = false;
+  enableFields();
 }
 
 function clearMesaageOnFocus() {
@@ -47,5 +55,5 @@ function showErrorMessage(message) {
 
 function showSuccessMessage(message) {
   formMessage.style.color = "#007910";
-  formMessage.textContent - `${message}`
+  formMessage.textContent - `${message}`;
 }
