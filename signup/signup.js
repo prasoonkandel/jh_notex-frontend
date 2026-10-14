@@ -24,3 +24,15 @@ function hideLoading() {
   passwordInput.disabled = false;
   confirmPasswordInput.disabled = false;
 }
+
+usernameInput.addEventListener("focus", () => {
+  if (!isLoading) {
+    formMessage.textContent = "";
+  }
+});
+
+passwordInput.addEventListener("focus", () => {
+  if (!isLoading) {
+    formMessage.textContent = "";
+  }
+});
