@@ -49,7 +49,9 @@ signupForm.addEventListener("submit", async (event) => {
     }
 
     hideLoading();
-    showSuccessMessage(result.message || "Account Registered Succeesfully!");
+    showSuccessMessage("Account Registered Succeesfully!");
+
+    localStorage.setItem("auth_token", `${result.access_token}`);
   } catch (error) {
     showErrorMessage(error.message);
     hideLoading();
