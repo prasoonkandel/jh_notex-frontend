@@ -35,12 +35,11 @@ loginForm.addEventListener("submit", async (event) => {
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(
-        result.detail || `Login failed due to an unexpected error.`,
-      );
+      throw new Error(`Login failed due to an unexpected error.`);
     }
-    showSuccessMessage(result.message || "Login successful!");
+    showSuccessMessage("Login successful!");
     hideLoading();
+    localStorage.setItem("auth_token", `${result.access_token}`);
   } catch (error) {
     showErrorMessage(error.message);
     hideLoading();
