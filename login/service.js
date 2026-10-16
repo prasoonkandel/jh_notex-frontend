@@ -26,7 +26,7 @@ function showLoading() {
 
   disableFields();
 
-  formMessage.style.color = "#0a2947";
+  formMessage.style.color = "var(--tertiary)";
   formMessage.textContent = "Loading ...";
 }
 
@@ -34,6 +34,7 @@ function hideLoading() {
   isLoading = false;
   enableFields();
 }
+
 
 function clearMesaageOnFocus() {
   if (!isLoading) {
@@ -44,6 +45,7 @@ function clearMesaageOnFocus() {
     }
   }
 }
+
 
 function showErrorMessage(message) {
   formMessage.style.color = "#9E2A2B";

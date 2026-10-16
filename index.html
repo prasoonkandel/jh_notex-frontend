@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="theme-color" content="#F3E4C9" />
+    <meta name="theme-color" content="#FFF5F2" />
     <meta
       name="description"
       content="JingHua Notex is a simple space to write, organize, and keep your ideas in one place." />
@@ -17,11 +17,22 @@
   </head>
 
   <body>
+    <div
+      class="page-loader"
+      id="page-loader"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading JingHua Notex">
+      <img src="/logo.svg" alt="" width="76" height="76" />
+      <span class="page-loader-label">Loading JingHua Notex</span>
+      <div class="page-loader-progress" aria-hidden="true"><span></span></div>
+    </div>
+
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="#home" aria-label="JingHua Notex home">
           <span class="brand-name">
-            <img src="./public/logo.svg" alt="JingHua Notex" />
+            <img src="/logo.svg" alt="JingHua Notex" />
           </span>
         </a>
 
@@ -49,7 +60,7 @@
 
             <div class="hero-actions">
               <a class="button button-primary cta-btn" href="./login/">
-                Get started
+                Get Started
               </a>
 
               <a class="button button-secondary" href="#how-it-works">
@@ -104,7 +115,7 @@
           <h2>JingHua Notex</h2>
 
           <a class="button button-light cta-btn" href="./login/">
-            Get started
+            Get Started
           </a>
         </div>
       </section>
