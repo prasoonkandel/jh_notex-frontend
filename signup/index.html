@@ -1,83 +1,92 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FAEEE7" />
-    <meta
-      name="description"
-      content="Create a JingHua Notex account to make space for your ideas." />
-    <title>Sign up</title>
-    <link rel="stylesheet" href="../login/style.css" />
-    <link rel="stylesheet" href="/loader.css" />
-    <link rel="icon" type="icon" href="../public/favicon.ico" />
-    <script src="/loader.js" defer></script>
-    <script src="../auth-check.js"></script>
-  </head>
-  <body>
-    <div
-      class="page-loader"
-      id="page-loader"
-      role="status"
-      aria-live="polite"
-      aria-label="Loading JingHua Notex">
-      <img src="/logo.svg" alt="" width="76" height="76" />
-      <span class="page-loader-label">Loading JingHua Notex</span>
-      <div class="page-loader-progress" aria-hidden="true"><span></span></div>
-    </div>
-    <a href="../"><div class="back-home btn">&larr; Go Back Home</div></a>
-    <main class="login-main">
-      <section class="login-content">
-        <h1 id="signup-title">Create your account</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#FAEEE7" />
+        <meta
+            name="description"
+            content="Create a JingHua Notex account to make space for your ideas."
+        />
+        <title>Sign up</title>
+        <link rel="stylesheet" href="../login/style.css" />
+        <link rel="stylesheet" href="/loader.css" />
+        <link rel="icon" type="icon" href="../public/favicon.ico" />
+        <script src="/loader.js" defer></script>
+        <script src="../auth-check.js"></script>
+    </head>
+    <body>
+        <div
+            class="page-loader"
+            id="page-loader"
+            role="status"
+            aria-live="polite"
+            aria-label="Loading JingHua Notex"
+        >
+            <img src="/logo.svg" alt="" width="76" height="76" />
+            <span class="page-loader-label">Loading JingHua Notex</span>
+            <div class="page-loader-progress" aria-hidden="true">
+                <span></span>
+            </div>
+        </div>
+        <a href="../"><div class="back-home btn">&larr; Go Back Home</div></a>
+        <main class="login-main">
+            <section class="login-content">
+                <h1 id="signup-title">Create your account</h1>
 
-        <form class="login-form" id="signup-form">
-          <div class="form-field">
-            <label for="username">Username</label>
-            <input
-              id="username"
-              name="username"
-              type="text"
-              autocomplete="username"
-              autocapitalize="none"
-              spellcheck="false"
-              required />
-            <p class="field-error" id="username-error"></p>
-          </div>
+                <form class="login-form" id="signup-form">
+                    <div class="form-field">
+                        <label for="username">Username</label>
+                        <input
+                            id="username"
+                            name="username"
+                            type="text"
+                            autocomplete="username"
+                            autocapitalize="none"
+                            spellcheck="false"
+                            required
+                        />
+                        <p class="field-error" id="username-error"></p>
+                    </div>
 
-          <div class="form-field">
-            <label for="password">Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autocomplete="new-password"
-              required />
-            <p class="field-error" id="password-error"></p>
-          </div>
+                    <div class="form-field">
+                        <label for="password">Password</label>
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            autocomplete="new-password"
+                            required
+                        />
+                        <p class="field-error" id="password-error"></p>
+                    </div>
 
-          <div class="form-field">
-            <label for="confirm-password">Confirm password</label>
-            <input
-              id="confirm-password"
-              name="confirm-password"
-              type="password"
-              autocomplete="new-password"
-              required />
-            <p class="field-error" id="confirm-password-error"></p>
-          </div>
+                    <div class="form-field">
+                        <label for="confirm-password">Confirm password</label>
+                        <input
+                            id="confirm-password"
+                            name="confirm-password"
+                            type="password"
+                            autocomplete="new-password"
+                            required
+                        />
+                        <p class="field-error" id="confirm-password-error"></p>
+                    </div>
 
-          <p class="form-message" id="form-message" role="alert"></p>
+                    <p class="form-message" id="form-message" role="alert"></p>
 
-          <button class="login-button" type="submit">Create account</button>
-        </form>
+                    <button class="login-button" type="submit">
+                        Create account
+                    </button>
+                </form>
 
-        <p class="signup-prompt">
-          Already have an account? <a href="../login/">Log in</a>
-        </p>
-      </section>
-    </main>
-    <script src="../config.js"></script>
-    <script src="../login/service.js"></script>
-    <script src="./signup.js"></script>
-  </body>
+                <p class="signup-prompt">
+                    Already have an account? <a href="../login/">Log in</a>
+                </p>
+            </section>
+        </main>
+        <script src="../config.js"></script>
+        <script src="../login/service.js"></script>
+        <script src="./signup.js"></script>
+    </body>
 </html>

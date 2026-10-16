@@ -1,42 +1,42 @@
 :root {
-  --primary: #00817d;
-  --primary-strong: #036461;
-  --secondary: #faeee7;
-  --tertiary: #0a2947;
-  --accent: #b70055;
-  --muted: var(--tertiary);
-  --border: rgba(50, 82, 136, 0.28);
-  --border-on-dark: rgba(250, 238, 231, 0.4);
-  --page-width: 1160px;
-  --page-padding: 32px;
-  --home-page-padding: var(--page-padding);
-  --login-page-padding: var(--page-padding);
-  --radius: 9px;
-  --transition: 200ms ease;
-  --login-radius: 8px;
-  --login-transition: 180ms ease;
+    --primary: #00817d;
+    --primary-strong: #036461;
+    --secondary: #faeee7;
+    --tertiary: #0a2947;
+    --accent: #b70055;
+    --muted: var(--tertiary);
+    --border: rgba(50, 82, 136, 0.28);
+    --border-on-dark: rgba(250, 238, 231, 0.4);
+    --page-width: 1160px;
+    --page-padding: 32px;
+    --home-page-padding: var(--page-padding);
+    --login-page-padding: var(--page-padding);
+    --radius: 9px;
+    --transition: 200ms ease;
+    --login-radius: 8px;
+    --login-transition: 180ms ease;
 }
 
 @media (max-width: 700px) {
-  :root {
-    --home-page-padding: 22px;
-  }
+    :root {
+        --home-page-padding: 22px;
+    }
 }
 
 @media (max-width: 600px) {
-  :root {
-    --login-page-padding: 22px;
-  }
+    :root {
+        --login-page-padding: 22px;
+    }
 }
 
 @media (max-width: 420px) {
-  :root {
-    --home-page-padding: 16px;
-  }
+    :root {
+        --home-page-padding: 16px;
+    }
 }
 
 @media (max-width: 380px) {
-  :root {
-    --login-page-padding: 18px;
-  }
+    :root {
+        --login-page-padding: 18px;
+    }
 }
