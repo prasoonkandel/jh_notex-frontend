@@ -1,0 +1,71 @@
+.page-loader {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 1.1rem;
+  color: var(--secondary, #faeee7);
+  background: var(--tertiary, #0a2947);
+  transition:
+    opacity 250ms ease,
+    visibility 250ms ease;
+}
+
+.page-loader.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-loader > img {
+  display: block;
+  width: 76px;
+  height: 76px;
+}
+
+.page-loader-label {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.page-loader-progress {
+  width: min(15rem, 65vw);
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(250 238 231 / 24%);
+}
+
+.page-loader-progress span {
+  display: block;
+  width: 36%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--secondary, #faeee7);
+  animation: page-loader-progress 1.4s ease-in-out infinite;
+}
+
+@keyframes page-loader-progress {
+  from {
+    transform: translateX(-110%);
+  }
+
+  to {
+    transform: translateX(290%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader {
+    transition-duration: 0.01ms;
+  }
+
+  .page-loader-progress span {
+    animation: none !important;
+    transform: none !important;
+  }
+}

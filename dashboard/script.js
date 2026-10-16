@@ -1,8 +1,8 @@
 const profileButton = document.getElementById("profile-button");
 const profileMenu = document.getElementById("profile-menu");
 const signOut_btn = document.getElementById("sign-out");
+const updateUser_btn = document.getElementById("updateUser");
 const user = document.getElementById("user");
-const pageLoaderStartedAt = performance.now();
 
 profileButton.addEventListener("click", () => {
   const isOpen = profileButton.getAttribute("aria-expanded") === "true";
@@ -14,8 +14,13 @@ signOut_btn.addEventListener("click", (event) => {
   const token = localStorage.getItem("auth_token");
   if (token) {
     localStorage.removeItem("auth_token");
+    localStorage.removeItem("username");
   }
   window.location.reload();
+});
+
+updateUser_btn.addEventListener("click", (event) => {
+  window.location.href = "/dashboard/updateUser/";
 });
 document.addEventListener("click", (event) => {
   if (
@@ -57,16 +62,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const id = data.id;
 
     user.textContent = username;
-    const pageLoader = document.getElementById("page-loader");
-    const remainingTime = Math.max(
-      0,
-      500 - (performance.now() - pageLoaderStartedAt),
-    );
-    window.setTimeout(
-      () => pageLoader?.classList.add("is-hidden"),
-      remainingTime,
-    );
+    localStorage.setItem("username", username);
+    window.hidePageLoader();
   } catch (error) {
+    window.hidePageLoader();
     alert("The Login has Expired");
     localStorage.removeItem("auth_token");
 
