@@ -13,8 +13,8 @@ html {
 body {
   min-width: 320px;
   margin: 0;
-  color: var(--navy);
-  background: var(--cream);
+  color: var(--tertiary);
+  background: var(--secondary);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.8;
@@ -27,7 +27,7 @@ a {
 }
 
 a:focus-visible {
-  outline: 2px solid var(--brown);
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 
@@ -39,8 +39,8 @@ a:focus-visible {
 .site-header {
   position: relative;
   z-index: 2;
-  background: var(--navy);
-  color: var(--cream);
+  background: var(--tertiary);
+  color: var(--secondary);
   border-bottom: 1px solid var(--border);
 }
 
@@ -66,6 +66,12 @@ a:focus-visible {
   white-space: nowrap;
 }
 
+.brand-name img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
 .brand-name strong {
   font-weight: 700;
 }
@@ -86,7 +92,7 @@ a:focus-visible {
 
 .nav-link:hover,
 .footer-top:hover {
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 /* Buttons */
@@ -113,38 +119,39 @@ a:focus-visible {
 }
 
 .button-nav {
-  color: var(--navy);
-  background: var(--cream);
-  border-color: var(--brown);
+  color: var(--tertiary);
+  background: var(--secondary);
+  border-color: var(--accent);
+  border-width: 0;
 }
 
 .button-nav:hover {
-  color: var(--cream);
-  background: var(--brown);
-  border-color: var(--navy);
+  color: var(--secondary);
+  background: var(--primary-strong);
+  border-color: var(--primary-strong);
 }
 
 .button-primary {
-  color: var(--cream);
-  background: var(--navy);
-  border-color: var(--navy);
+  color: var(--secondary);
+  background: var(--tertiary);
+  border-color: var(--tertiary);
 }
 
 .button-primary:hover {
-  color: var(--cream);
-  background: var(--brown);
-  border-color: var(--brown);
+  color: var(--secondary);
+  background: var(--primary-strong);
+  border-color: var(--primary-strong);
 }
 
 .button-secondary {
-  color: var(--navy);
+  color: var(--tertiary);
   background: transparent;
-  border-color: rgba(10, 41, 71, 0.28);
+  border-color: var(--border);
 }
 
 .button-secondary:hover {
-  background: var(--sage);
-  border-color: var(--sage);
+  background: rgb(36 161 156 / 14%);
+  border-color: var(--primary);
 }
 
 .nav-cta {
@@ -156,7 +163,7 @@ a:focus-visible {
 
 .hero {
   padding: clamp(100px, 13vw, 166px) 0 clamp(105px, 14vw, 174px);
-  background: var(--cream);
+  background: var(--secondary);
 }
 
 .hero-content {
@@ -171,7 +178,7 @@ a:focus-visible {
 
 .eyebrow {
   margin: 0 0 23px;
-  color: var(--brown);
+  color: var(--tertiary);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.7px;
@@ -188,7 +195,7 @@ a:focus-visible {
 }
 
 .hero h1 span {
-  color: var(--brown);
+  color: var(--accent);
 }
 
 .hero-description {
@@ -210,8 +217,8 @@ a:focus-visible {
 
 .how-it-works {
   padding: 91px 0 86px;
-  color: var(--cream);
-  background: var(--navy);
+  color: var(--secondary);
+  background: var(--tertiary);
 }
 
 .how-heading {
@@ -230,12 +237,12 @@ a:focus-visible {
 }
 
 .how-heading h2 span {
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .how-heading > p:last-child {
   margin: 17px 0 0;
-  color: var(--cream);
+  color: var(--secondary);
   font-size: 16px;
   line-height: 1.8;
   opacity: 0.88;
@@ -248,7 +255,7 @@ a:focus-visible {
   margin: 0 auto;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgba(243, 228, 201, 0.25);
+  border-top: 1px solid var(--border-on-dark);
 }
 
 .step-item {
@@ -260,12 +267,12 @@ a:focus-visible {
   margin: 0;
   padding: 24px 0;
 
-  border-bottom: 1px solid rgba(243, 228, 201, 0.25);
+  border-bottom: 1px solid var(--border-on-dark);
 }
 
 .step-index {
   padding-top: 3px;
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 13px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
@@ -273,7 +280,7 @@ a:focus-visible {
 
 .step-copy h3 {
   margin: 0 0 5px;
-  color: var(--cream);
+  color: var(--secondary);
   font-size: 18px;
   font-weight: 600;
   line-height: 1.5;
@@ -282,7 +289,7 @@ a:focus-visible {
 .step-copy p {
   max-width: 600px;
   margin: 0;
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 15px;
   line-height: 1.85;
 }
@@ -291,8 +298,8 @@ a:focus-visible {
 
 .closing-cta {
   padding: 42px 0;
-  color: var(--navy);
-  background: var(--cream);
+  color: var(--tertiary);
+  background: var(--secondary);
 }
 
 .closing-layout {
@@ -304,7 +311,7 @@ a:focus-visible {
 
 .closing-layout h2 {
   margin: 0;
-  color: var(--navy);
+  color: var(--tertiary);
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(27px, 3vw, 35px);
   font-weight: 500;
@@ -313,27 +320,26 @@ a:focus-visible {
 }
 
 .button-light {
-  color: var(--sage);
-  background: var(--navy);
-  border-color: var(--navy);
+  color: var(--secondary);
+  background: var(--tertiary);
+  border: 0;
 }
 
 .button-light:hover {
-  color: var(--navy);
-  background: var(--sage);
-  border-color: var(--navy);
+  color: var(--secondary);
+  background: var(--primary);
 }
 
 /* Footer */
 
 .site-footer {
-  background: var(--navy);
+  background: var(--tertiary);
   min-height: 50px;
   text-align: center;
   padding: 20px;
 }
 .copyright {
-  color: var(--cream);
+  color: var(--secondary);
   font-size: 18px;
 }
 
