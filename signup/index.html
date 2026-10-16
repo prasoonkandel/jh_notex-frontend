@@ -9,10 +9,22 @@
       content="Create a JingHua Notex account to make space for your ideas." />
     <title>Sign up</title>
     <link rel="stylesheet" href="../login/style.css" />
+    <link rel="stylesheet" href="/loader.css" />
     <link rel="icon" type="icon" href="../public/favicon.ico" />
+    <script src="/loader.js" defer></script>
     <script src="../auth-check.js"></script>
   </head>
   <body>
+    <div
+      class="page-loader"
+      id="page-loader"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading JingHua Notex">
+      <img src="/logo.svg" alt="" width="76" height="76" />
+      <span class="page-loader-label">Loading JingHua Notex</span>
+      <div class="page-loader-progress" aria-hidden="true"><span></span></div>
+    </div>
     <a href="../"><div class="back-home btn">&larr; Go Back Home</div></a>
     <main class="login-main">
       <section class="login-content">
