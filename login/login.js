@@ -38,8 +38,11 @@ loginForm.addEventListener("submit", async (event) => {
       throw new Error(`Login failed due to an unexpected error.`);
     }
     showSuccessMessage("Login successful!");
+
     hideLoading();
     localStorage.setItem("auth_token", `${result.access_token}`);
+
+    window.location.reload();
   } catch (error) {
     showErrorMessage(error.message);
     hideLoading();

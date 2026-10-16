@@ -1,5 +1,6 @@
 const profileButton = document.getElementById("profile-button");
 const profileMenu = document.getElementById("profile-menu");
+const signOut_btn = document.getElementById("sign-out");
 const user = document.getElementById("user");
 const pageLoaderStartedAt = performance.now();
 
@@ -9,6 +10,13 @@ profileButton.addEventListener("click", () => {
   profileMenu.hidden = isOpen;
 });
 
+signOut_btn.addEventListener("click", (event) => {
+  const token = localStorage.getItem("auth_token");
+  if (token) {
+    localStorage.removeItem("auth_token");
+  }
+  window.location.reload();
+});
 document.addEventListener("click", (event) => {
   if (
     !(event.target instanceof Element) ||
