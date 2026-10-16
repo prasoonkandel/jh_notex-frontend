@@ -52,6 +52,8 @@ signupForm.addEventListener("submit", async (event) => {
     showSuccessMessage("Account Registered Succeesfully!");
 
     localStorage.setItem("auth_token", `${result.access_token}`);
+
+    window.location.reload();
   } catch (error) {
     showErrorMessage(error.message);
     hideLoading();
