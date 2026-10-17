@@ -2,7 +2,7 @@ const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 const confirmPasswordInput = document.querySelector("#confirm-password");
 const formMessage = document.querySelector("#form-message");
-
+const button = document.querySelector("button");
 const fields = confirmPasswordInput
   ? [usernameInput, passwordInput, confirmPasswordInput]
   : [usernameInput, passwordInput];
@@ -23,7 +23,7 @@ function enableFields() {
 
 function showLoading() {
   isLoading = true;
-
+  button.disabled = true;
   disableFields();
 
   formMessage.style.color = "var(--tertiary)";
@@ -33,8 +33,8 @@ function showLoading() {
 function hideLoading() {
   isLoading = false;
   enableFields();
+  button.disabled = false;
 }
-
 
 function clearMesaageOnFocus() {
   if (!isLoading) {
@@ -45,7 +45,6 @@ function clearMesaageOnFocus() {
     }
   }
 }
-
 
 function showErrorMessage(message) {
   formMessage.style.color = "#9E2A2B";
