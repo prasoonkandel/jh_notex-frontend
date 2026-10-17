@@ -173,16 +173,15 @@ button:focus-visible {
     font-weight: 650;
     cursor: pointer;
     transition:
-        color var(--update-transition),
-        background-color var(--update-transition),
-        border-color var(--update-transition);
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
 }
 
 .update-button:not(:disabled):hover {
     border-color: var(--primary-strong);
     color: var(--secondary);
     background: var(--primary-strong);
-    box-shadow: inset 0 -3px var(--primary);
 }
 
 .update-button:disabled {
