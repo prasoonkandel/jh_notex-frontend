@@ -35,7 +35,9 @@ loginForm.addEventListener("submit", async (event) => {
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(`Login failed due to an unexpected error.`);
+      throw new Error(
+        result.detail || `Login failed due to an unexpected error.`,
+      );
     }
     showSuccessMessage("Login successful!");
 
