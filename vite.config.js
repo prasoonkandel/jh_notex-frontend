@@ -14,6 +14,7 @@ export default defineConfig({
         dashboard: resolve(rootDir, "dashboard/index.html"),
         updateAccount: resolve(rootDir, "dashboard/updateAccount/index.html"),
         changePassword: resolve(rootDir, "dashboard/changePassword/index.html"),
+        createNote: resolve(rootDir, "dashboard/createNote/index.html"),
       },
     },
   },

@@ -5,6 +5,7 @@ const signOut_btn = document.getElementById("signOut");
 const updateUser_btn = document.getElementById("updateUser");
 const deleteAccount_btn = document.getElementById("deleteAccount");
 const changePassword_btn = document.getElementById("changePassword");
+const addNoteButtons = document.querySelectorAll(".add-note-button");
 
 const note_section = document.getElementById("note-section");
 const user = document.getElementById("user");
@@ -190,6 +191,12 @@ if (changePassword_btn) {
 if (deleteAccount_btn) {
   deleteAccount_btn.addEventListener("click", () => {
     window.location.href = "/dashboard/deleteAccount/";
+  });
+}
+
+for (const addNoteButton of addNoteButtons) {
+  addNoteButton.addEventListener("click", () => {
+    window.location.href = "/dashboard/createNote/";
   });
 }
 
