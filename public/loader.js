@@ -1,7 +1,14 @@
 const pageLoader = document.getElementById("page-loader");
 const pageLoaderStartedAt = performance.now();
 
+let pageLoaderHidden = false;
+
 window.hidePageLoader = () => {
+  if (pageLoaderHidden || !pageLoader) {
+    return;
+  }
+
+  pageLoaderHidden = true;
   const remainingTime = Math.max(
     0,
     500 - (performance.now() - pageLoaderStartedAt),
