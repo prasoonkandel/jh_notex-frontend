@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Delete Account</title>
+        <link rel="stylesheet" href="/part.css" />
+        <link rel="stylesheet" href="../updateAccount/style.css" />
+        <link rel="stylesheet" href="/loader.css" />
+        <script src="/loader.js" defer></script>
+    </head>
+    <body>
+        <div
+            class="page-loader"
+            id="page-loader"
+            role="status"
+            aria-live="polite"
+            aria-label="Loading JingHua Notex"
+        >
+            <img src="/logo.svg" alt="" width="76" height="76" />
+            <span class="page-loader-label">Loading</span>
+            <div class="page-loader-progress" aria-hidden="true">
+                <span></span>
+            </div>
+        </div>
+        <a href="../"><div class="back-home btn">&larr; Go Back</div></a>
+        <main class="update-main">
+            <section class="update-content">
+                <h1 id="update-title">Delete Account</h1>
+                <form class="update-form" id="delete-form">
+                    <div class="form-field">
+                        <label for="password">Password</label>
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            autocomplete="password"
+                            autocapitalize="none"
+                            spellcheck="false"
+                            required
+                        />
+                    </div>
+
+                    <p class="form-message" id="form-message" role="alert"></p>
+
+                    <button class="update-button" id="delete" type="submit">
+                        Delete
+                    </button>
+                </form>
+            </section>
+        </main>
+        <script src="/config.js"></script>
+        <script src="../service.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>
