@@ -1,13 +1,19 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
+
+const rootDir = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(import.meta.dirname, "index.html"),
-        login: resolve(import.meta.dirname, "login/index.html"),
-        dashboard: resolve(import.meta.dirname, "dashboard/index.html"),
+        main: resolve(rootDir, "index.html"),
+        login: resolve(rootDir, "login/index.html"),
+        signup: resolve(rootDir, "signup/index.html"),
+        dashboard: resolve(rootDir, "dashboard/index.html"),
+        updateAccount: resolve(rootDir, "dashboard/updateAccount/index.html"),
+        changePassword: resolve(rootDir, "dashboard/changePassword/index.html"),
       },
     },
   },
