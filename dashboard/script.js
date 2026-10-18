@@ -2,6 +2,7 @@ const profileButton = document.getElementById("profile-button");
 const profileMenu = document.getElementById("profile-menu");
 const signOut_btn = document.getElementById("sign-out");
 const updateUser_btn = document.getElementById("updateUser");
+const changePassword_btn = document.getElementById("changePassword");
 const user = document.getElementById("user");
 
 profileButton.addEventListener("click", () => {
@@ -21,6 +22,10 @@ signOut_btn.addEventListener("click", (event) => {
 
 updateUser_btn.addEventListener("click", (event) => {
   window.location.href = "/dashboard/updateUser/";
+});
+
+changePassword_btn.addEventListener("click", (event) => {
+  window.location.href = "/dashboard/changePassword/";
 });
 document.addEventListener("click", (event) => {
   if (
