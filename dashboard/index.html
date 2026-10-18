@@ -10,6 +10,8 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/part.css" />
         <link rel="stylesheet" href="./style.css" />
         <link rel="stylesheet" href="/loader.css" />
         <script src="/loader.js" defer></script>
@@ -85,6 +87,64 @@
             <h1 class="welcome-heading">
                 Welcome, <span id="user">User</span>!
             </h1>
+            <section id="notes-section" class="notes-section">
+                <div class="notes-toolbar">
+                    <label class="notes-search" for="notes-search-input">
+                        <i
+                            class="fa-solid fa-magnifying-glass"
+                            aria-hidden="true"
+                        ></i>
+                        <span class="visually-hidden">Search notes</span>
+                        <input
+                            id="notes-search-input"
+                            type="search"
+                            placeholder="Search your notes"
+                            autocomplete="off"
+                        />
+                    </label>
+                    <button
+                        class="add-note-button btn"
+                        id="add-note"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                        <span>Add note</span>
+                    </button>
+                </div>
+                <div class="notes-panel">
+                    <div class="notes-panel-header">
+                        <div>
+                            <h2 class="notes-heading">Your Notes</h2>
+                        </div>
+                        <span class="notes-count">1 note</span>
+                    </div>
+
+                    <div id="notes-list" class="notes-list">
+                        <article class="note-card">
+                            <p class="note-title">Hello, World!</p>
+                            <div class="note-actions">
+                                <button class="open-note-button" type="button">
+                                    <i
+                                        class="fa-solid fa-arrow-up-right-from-square"
+                                        aria-hidden="true"
+                                    ></i>
+                                    <span>Open</span>
+                                </button>
+                                <button
+                                    class="remove-note-button"
+                                    type="button"
+                                >
+                                    <i
+                                        class="fa-solid fa-trash"
+                                        aria-hidden="true"
+                                    ></i>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
         </main>
     </body>
 </html>
