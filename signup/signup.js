@@ -53,7 +53,7 @@ signupForm.addEventListener("submit", async (event) => {
 
     localStorage.setItem("auth_token", `${result.access_token}`);
 
-    window.location.reload();
+    window.location.replace("/dashboard/createNote/");
   } catch (error) {
     showErrorMessage(error.message);
     hideLoading();

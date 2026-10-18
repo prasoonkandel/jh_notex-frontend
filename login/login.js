@@ -44,7 +44,7 @@ loginForm.addEventListener("submit", async (event) => {
     hideLoading();
     localStorage.setItem("auth_token", `${result.access_token}`);
 
-    window.location.reload();
+    window.location.replace("/dashboard/");
   } catch (error) {
     showErrorMessage(error.message);
     hideLoading();
