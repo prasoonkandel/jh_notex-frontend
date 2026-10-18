@@ -6,6 +6,7 @@ const updateUser_btn = document.getElementById("updateUser");
 const deleteAccount_btn = document.getElementById("deleteAccount");
 const changePassword_btn = document.getElementById("changePassword");
 const addNoteButtons = document.querySelectorAll(".add-note-button");
+const notesSearchInput = document.getElementById("notes-search-input");
 
 const note_section = document.getElementById("note-section");
 const user = document.getElementById("user");
@@ -199,6 +200,17 @@ for (const addNoteButton of addNoteButtons) {
     window.location.href = "/dashboard/createNote/";
   });
 }
+
+notesSearchInput?.addEventListener("input", ({ target }) => {
+  const query = target.value.trim().toLowerCase();
+
+  document.querySelectorAll(".note-card").forEach((card) => {
+    card.hidden = !card
+      .querySelector(".note-title")
+      .textContent.toLowerCase()
+      .includes(query);
+  });
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
   await fetchUser();
