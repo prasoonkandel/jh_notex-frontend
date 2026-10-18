@@ -52,7 +52,7 @@ noteForm.addEventListener("submit", async (event) => {
     hideLoading();
 
     setTimeout(() => {
-      window.location.replace("/dashboard/");
+      window.location.replace(`/dashboard/notes/?id=${result.id}`);
     }, 1200);
   } catch (error) {
     if (error.status === 401) {
