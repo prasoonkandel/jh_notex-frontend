@@ -1,6 +1,6 @@
 const profileButton = document.getElementById("profile-button");
 const profileMenu = document.getElementById("profile-menu");
-const signOut_btn = document.getElementById("sign-out");
+const signOut_btn = document.getElementById("signOut");
 const updateUser_btn = document.getElementById("updateUser");
 const deleteAccount_btn = document.getElementById("deleteAccount");
 const changePassword_btn = document.getElementById("changePassword");

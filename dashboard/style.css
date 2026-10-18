@@ -155,27 +155,27 @@ a:focus-visible {
     background: rgb(36 161 156 / 14%);
 }
 
-.profile-menu #sign-out,
-.profile-menu #delete-account {
+.profile-menu #signOut,
+.profile-menu #deleteAccount {
     color: #a32d2d;
 }
 
-.profile-menu #sign-out {
+.profile-menu #signOut {
     margin-top: 0.3rem;
     padding-top: 0.8rem;
     border-top: 1px solid var(--border);
     border-radius: 0;
 }
 
-.profile-menu #sign-out:hover,
-.profile-menu #sign-out:focus-visible,
-.profile-menu #delete-account:hover,
-.profile-menu #delete-account:focus-visible {
+.profile-menu #signOut:hover,
+.profile-menu #signOut:focus-visible,
+.profile-menu #deleteAccount:hover,
+.profile-menu #deleteAccount:focus-visible {
     color: #852323;
     background: rgb(217 96 152 / 14%);
 }
 
-.profile-menu #sign-out:focus-visible {
+.profile-menu #signOut:focus-visible {
     border-radius: 5px;
 }
 
