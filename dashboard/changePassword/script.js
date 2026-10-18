@@ -39,11 +39,11 @@ updateForm.addEventListener("submit", async (event) => {
     return;
   }
 
-  data = {
-    old_password: old_password,
-    new_password: new_password,
+  const data = {
+    old_password: oldPassword,
+    new_password: newPassword,
   };
-  url = API_ENDPOINTS.user.password;
+  const url = API_ENDPOINTS.user.password;
 
   showLoading();
 
@@ -57,7 +57,7 @@ updateForm.addEventListener("submit", async (event) => {
       body: JSON.stringify(data),
     });
 
-    result = await response.json();
+    const result = await response.json();
 
     if (!response.ok) {
       throw new Error(result.detail || "Unexpected Error Occured");
