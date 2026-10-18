@@ -15,7 +15,8 @@ async function fetchNotes() {
   const token = localStorage.getItem("auth_token");
 
   if (!token) {
-    throw new Error("Authentication token not found");
+    window.location.href = "/login/";
+    return;
   }
 
   try {
@@ -162,6 +163,11 @@ async function fetchUser() {
   const token = localStorage.getItem("auth_token");
   const url = API_ENDPOINTS.user.me;
 
+  if (!token) {
+    window.location.href = "/login/";
+    return;
+  }
+
   try {
     const response = await fetch(url, {
       method: "GET",
@@ -225,14 +231,9 @@ document.addEventListener("keydown", (event) => {
 
 if (signOut_btn) {
   signOut_btn.addEventListener("click", () => {
-    const token = localStorage.getItem("auth_token");
-
-    if (token) {
-      localStorage.removeItem("auth_token");
-      localStorage.removeItem("username");
-    }
-
-    window.location.reload();
+    localStorage.removeItem("auth_token");
+    localStorage.removeItem("username");
+    window.location.replace("/login/");
   });
 }
 
