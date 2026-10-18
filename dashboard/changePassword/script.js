@@ -65,7 +65,9 @@ updateForm.addEventListener("submit", async (event) => {
 
     showSuccessMessage(result.message || "Password Changed Succesfully!");
     hideLoading();
-    window.location.href = "/dashboard/";
+    setTimeout(() => {
+      window.location.replace("/dashboard/");
+    }, 2000);
   } catch (error) {
     showErrorMessage(error.message);
     hideLoading();
