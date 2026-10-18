@@ -34,7 +34,7 @@ async function fetchNotes() {
     return await response.json();
   } catch (error) {
     console.error("Failed to fetch notes:", error);
-    return [];
+    throw error;
   }
 }
 
@@ -273,8 +273,21 @@ notesSearchInput?.addEventListener("input", ({ target }) => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await fetchUser();
-  const notes = await fetchNotes();
-  showNotes(notes);
-  window.hidePageLoader?.();
+  const dashboardError = document.getElementById("dashboard-error");
+
+  try {
+    await fetchUser();
+    const notes = await fetchNotes();
+    showNotes(notes);
+  } catch (error) {
+    console.error("Failed to initialize dashboard:", error);
+
+    if (dashboardError) {
+      dashboardError.textContent =
+        "We couldn't load your notes. Please refresh and try again.";
+      dashboardError.hidden = false;
+    }
+  } finally {
+    window.hidePageLoader?.();
+  }
 });
