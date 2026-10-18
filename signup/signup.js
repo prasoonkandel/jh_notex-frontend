@@ -6,10 +6,10 @@ signupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const username = usernameInput.value.trim();
-  const password = passwordInput.value.trim();
-  let confirmPassword = confirmPasswordInput.value.trim();
+  const password = passwordInput.value;
+  let confirmPassword = confirmPasswordInput.value;
 
-  if (!username || !password) {
+  if (!username || !password.trim()) {
     if (username) {
       passwordInput.focus();
     } else {
