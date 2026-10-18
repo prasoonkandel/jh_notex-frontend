@@ -3,8 +3,8 @@ const button = document.querySelector("button");
 const form = document.querySelector("form");
 const fields = [];
 
-for (const input of form.querySelectorAll("input")) {
-  fields.push(input);
+for (const field of form.querySelectorAll("input, textarea, select")) {
+  fields.push(field);
 }
 
 let isLoading = false;
