@@ -35,6 +35,68 @@ async function fetchNotes() {
   }
 }
 
+function showNotes(notes) {
+  const toolbar = document.getElementById("notes-toolbar");
+  const notesList = document.getElementById("notes-list");
+  const emptyState = document.getElementById("notes-empty");
+  const notesCount = document.querySelector(".notes-count");
+
+  if (!toolbar || !notesList || !emptyState || !notesCount) {
+    return;
+  }
+
+  if (!Array.isArray(notes)) {
+    throw new TypeError("Expected an array of notes");
+  }
+
+  notesCount.textContent = `${notes.length} ${
+    notes.length === 1 ? "note" : "notes"
+  }`;
+
+  notesList.replaceChildren();
+
+  if (notes.length === 0) {
+    toolbar.hidden = true;
+    emptyState.hidden = false;
+    return;
+  }
+
+  toolbar.hidden = false;
+  emptyState.hidden = true;
+
+  notes.forEach((note) => {
+    const card = document.createElement("article");
+
+    card.className = "note-card";
+    card.dataset.noteId = note.id;
+
+    card.innerHTML = `
+      <p class="note-title"></p>
+
+      <div class="note-actions">
+        <button class="open-note-button" type="button">
+          <i
+            class="fa-solid fa-arrow-up-right-from-square"
+            aria-hidden="true"
+          ></i>
+          <span>Open</span>
+        </button>
+
+        <button class="remove-note-button" type="button">
+          <i
+            class="fa-solid fa-trash"
+            aria-hidden="true"
+          ></i>
+          <span>Delete</span>
+        </button>
+      </div>
+    `;
+    card.querySelector(".note-title").textContent = note.title;
+
+    notesList.appendChild(card);
+  });
+}
+
 async function fetchUser() {
   const token = localStorage.getItem("auth_token");
   const url = API_ENDPOINTS.user.me;
@@ -134,5 +196,6 @@ if (deleteAccount_btn) {
 document.addEventListener("DOMContentLoaded", async () => {
   await fetchUser();
   const notes = await fetchNotes();
+  showNotes(notes);
   window.hidePageLoader?.();
 });

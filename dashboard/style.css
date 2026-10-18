@@ -172,6 +172,43 @@ a:focus-visible {
     color: rgb(10 41 71 / 62%);
 }
 
+.notes-toolbar[hidden],
+.notes-empty[hidden] {
+    display: none;
+}
+
+.notes-list:empty {
+    display: none;
+}
+
+.notes-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.notes-empty > i {
+    color: var(--muted);
+    font-size: 2.5rem;
+}
+
+.notes-empty h3 {
+    margin: 0;
+    color: var(--tertiary);
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.notes-empty .add-note-button {
+    margin-top: 4px;
+}
+
 .notes-list {
     padding-top: 22px;
     display: flex;
