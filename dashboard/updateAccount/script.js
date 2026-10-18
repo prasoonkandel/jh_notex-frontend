@@ -22,12 +22,19 @@ usernameInput.addEventListener("input", () => {
 
 updateForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  new_username = usernameInput.value.trim();
-  data = {
+  const new_username = usernameInput.value.trim();
+  const data = {
     new_username: new_username,
   };
-  url = API_ENDPOINTS.user.me;
-  token = localStorage.getItem("auth_token");
+  const url = API_ENDPOINTS.user.me;
+  const token = localStorage.getItem("auth_token");
+
+  if (!token) {
+    showErrorMessage("Your session has expired. Please log in again.");
+    window.location.href = "/login/";
+    return;
+  }
+
   showLoading();
 
   try {
@@ -40,7 +47,7 @@ updateForm.addEventListener("submit", async (event) => {
       body: JSON.stringify(data),
     });
 
-    result = await response.json();
+    const result = await response.json();
 
     if (!response.ok) {
       throw new Error(result.detail || "Unexpected Error Occured");
