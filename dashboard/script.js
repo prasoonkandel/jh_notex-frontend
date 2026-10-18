@@ -21,7 +21,7 @@ signOut_btn.addEventListener("click", (event) => {
 });
 
 updateUser_btn.addEventListener("click", (event) => {
-  window.location.href = "/dashboard/updateUser/";
+  window.location.href = "/dashboard/updateAccount/";
 });
 
 changePassword_btn.addEventListener("click", (event) => {
