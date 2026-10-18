@@ -12,6 +12,7 @@
     "vite": "^8.3.0"
   },
   "dependencies": {
-    "@milkdown/crepe": "^7.22.3"
+    "@milkdown/crepe": "^7.22.3",
+    "@milkdown/kit": "^7.22.3"
   }
 }
