@@ -173,7 +173,8 @@ a:focus-visible {
 }
 
 .notes-toolbar[hidden],
-.notes-empty[hidden] {
+.notes-empty[hidden],
+.note-card[hidden] {
     display: none;
 }
 
