@@ -95,6 +95,16 @@ function showNotes(notes) {
     `;
     card.querySelector(".note-title").textContent = note.title;
 
+    card.querySelector(".open-note-button").addEventListener("click", () => {
+      const deleteButton = card.querySelector(".remove-note-button");
+
+      if (deleteButton.disabled) {
+        return;
+      }
+
+      window.location.href = `/dashboard/notes/?id=${note.id}`;
+    });
+
     card
       .querySelector(".remove-note-button")
       .addEventListener("click", async () => {
