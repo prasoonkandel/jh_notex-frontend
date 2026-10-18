@@ -2,6 +2,12 @@ const noteForm = document.querySelector("#note-form");
 const titleInput = document.querySelector("#title");
 const createNoteButton = document.querySelector("#create-note");
 
+function redirectToLogin() {
+  localStorage.removeItem("auth_token");
+  localStorage.removeItem("username");
+  window.location.replace("/login/");
+}
+
 function updateButtonState() {
   createNoteButton.disabled = titleInput.value.trim() === "";
 }
@@ -15,8 +21,7 @@ noteForm.addEventListener("submit", async (event) => {
   const token = localStorage.getItem("auth_token");
 
   if (!token) {
-    showErrorMessage("Your session has expired. Please log in again.");
-    window.location.href = "/login/";
+    redirectToLogin();
     return;
   }
 
@@ -38,7 +43,9 @@ noteForm.addEventListener("submit", async (event) => {
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(result.detail || "Unable to create note.");
+      const error = new Error(result?.detail || "Unable to create note.");
+      error.status = response.status;
+      throw error;
     }
 
     showSuccessMessage(result.message || "Note created successfully!");
@@ -48,6 +55,11 @@ noteForm.addEventListener("submit", async (event) => {
       window.location.replace("/dashboard/");
     }, 1200);
   } catch (error) {
+    if (error.status === 401) {
+      redirectToLogin();
+      return;
+    }
+
     showErrorMessage(error.message);
     hideLoading();
   }
