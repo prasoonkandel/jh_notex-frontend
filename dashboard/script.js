@@ -95,6 +95,55 @@ function showNotes(notes) {
     `;
     card.querySelector(".note-title").textContent = note.title;
 
+    card
+      .querySelector(".remove-note-button")
+      .addEventListener("click", async () => {
+        const token = localStorage.getItem("auth_token");
+        const deleteButton = card.querySelector(".remove-note-button");
+
+        if (deleteButton.disabled) {
+          return;
+        }
+
+        if (!token) {
+          window.location.href = "/login/";
+          return;
+        }
+        const originalButtonContent = deleteButton.innerHTML;
+        deleteButton.disabled = true;
+        deleteButton.setAttribute("aria-busy", "true");
+        deleteButton.replaceChildren();
+        deleteButton.textContent = "Deleting...";
+
+        try {
+          const response = await fetch(`${API_ENDPOINTS.notes}/${note.id}`, {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          card.remove();
+          const remainingNotes = document.querySelectorAll(".note-card").length;
+          document.querySelector(".notes-count").textContent =
+            `${remainingNotes} ${remainingNotes === 1 ? "note" : "notes"}`;
+
+          if (remainingNotes === 0) {
+            document.getElementById("notes-toolbar").hidden = true;
+            document.getElementById("notes-empty").hidden = false;
+          }
+        } catch (error) {
+          console.error("Failed to delete note:", error);
+          alert("Failed to delete");
+          deleteButton.innerHTML = originalButtonContent;
+          deleteButton.disabled = false;
+          deleteButton.removeAttribute("aria-busy");
+        }
+      });
     notesList.appendChild(card);
   });
 }
