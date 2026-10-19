@@ -347,6 +347,37 @@ body {
     font-family: "Fira Code", monospace;
 }
 
+#note-editor .milkdown .ProseMirror pre {
+    margin: 1.25em 0;
+    padding: 16px 18px;
+    overflow-x: auto;
+
+    background: #111827;
+    border: 1px solid #263244;
+    border-radius: 8px;
+    color: #e5e7eb;
+}
+
+#note-editor .milkdown .ProseMirror pre code {
+    color: inherit;
+}
+
+#note-editor .milkdown .milkdown-code-block {
+    --crepe-color-surface: #111827;
+    --crepe-color-on-surface: #e5e7eb;
+
+    background: #111827;
+    border: 1px solid #263244;
+    border-radius: 8px;
+}
+
+#note-editor .milkdown .milkdown-code-block .cm-editor,
+#note-editor .milkdown .milkdown-code-block .cm-gutters,
+#note-editor .milkdown .milkdown-code-block .cm-panel {
+    background: #111827;
+    color: #e5e7eb;
+}
+
 #note-editor .milkdown .milkdown-toolbar {
     padding: 5px;
 
