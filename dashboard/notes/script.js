@@ -14,6 +14,7 @@ const editorContainer = document.getElementById("note-editor");
 const noteDocument = document.getElementById("note-document");
 
 const saveButton = document.getElementById("save-button");
+const copyButton = document.getElementById("copy-button");
 const saveStatus = document.getElementById("save-status");
 const editorActions = document.getElementById("editor-actions");
 
@@ -35,6 +36,7 @@ let crepe = null;
 
 let ready = false;
 let saving = false;
+let copying = false;
 
 let savedTitle = "";
 let savedContent = "";
@@ -125,8 +127,23 @@ function convertH1ToH2(transaction, documentNode) {
   return changed ? transaction : null;
 }
 
+function updateCodeBlockClasses(view) {
+  editorContainer
+    .querySelectorAll(".milkdown-code-block")
+    .forEach((element) => {
+      const position = view.posAtDOM(element, 0);
+      const node = view.state.doc.nodeAt(position);
+      const isLatex = node?.attrs.language?.toLowerCase() === "latex";
+
+      element.classList.toggle("latex-code-block", isLatex);
+    });
+}
+
 const preventH1Plugin = $prose(() => {
   return new Plugin({
+    view: () => ({
+      update: updateCodeBlockClasses,
+    }),
     appendTransaction(transactions, oldState, newState) {
       if (!transactions.some((transaction) => transaction.docChanged)) {
         return null;
@@ -157,11 +174,52 @@ function hasUnsavedChanges() {
   return getTitle() !== savedTitle || crepe.getMarkdown() !== savedContent;
 }
 
+function getNoteMarkdown() {
+  const title = getTitle();
+  const content = crepe.getMarkdown().trim();
+
+  return [title ? `# ${title}` : "", content].filter(Boolean).join("\n\n");
+}
+
+async function copyNoteAsMarkdown() {
+  if (!ready || !crepe || copying) {
+    return;
+  }
+
+  if (!navigator.clipboard?.writeText) {
+    setStatus("Copy is not supported in this browser", "error");
+    return;
+  }
+
+  copying = true;
+  copyButton.disabled = true;
+
+  try {
+    await navigator.clipboard.writeText(getNoteMarkdown());
+    copyButton.querySelector("span").textContent = "Copied!";
+    setStatus("Copied as Markdown", "success");
+
+    window.setTimeout(() => {
+      copyButton.querySelector("span").textContent = "Copy Markdown";
+      copying = false;
+      updateSaveState();
+    }, 1400);
+  } catch (error) {
+    console.error("Failed to copy note:", error);
+    copying = false;
+    copyButton.disabled = false;
+    setStatus("Copy failed. Please try again.", "error");
+  }
+}
+
 function updateSaveState() {
   if (!ready || !crepe) {
     saveButton.disabled = true;
+    copyButton.disabled = true;
     return;
   }
+
+  copyButton.disabled = copying;
 
   const title = getTitle();
 
@@ -239,6 +297,7 @@ async function initializeEditor(markdown) {
           { label: "H6", level: 6 },
         ],
       },
+
     },
   });
 
@@ -254,6 +313,10 @@ async function initializeEditor(markdown) {
   });
 
   await crepe.create();
+
+  crepe.editor.action((ctx) => {
+    updateCodeBlockClasses(ctx.get(editorViewCtx));
+  });
 
   const originalMarkdown = crepe.getMarkdown();
 
@@ -352,6 +415,7 @@ async function loadNote() {
 
     ready = true;
     titleInput.disabled = false;
+    copyButton.disabled = false;
 
     noteError.hidden = true;
     noteDocument.hidden = false;
@@ -441,6 +505,10 @@ titleInput.addEventListener("input", () => {
 
 saveButton.addEventListener("click", () => {
   void saveNote();
+});
+
+copyButton.addEventListener("click", () => {
+  void copyNoteAsMarkdown();
 });
 
 document.addEventListener("keydown", (event) => {

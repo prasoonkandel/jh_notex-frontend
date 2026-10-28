@@ -141,6 +141,49 @@ body {
         opacity var(--transition);
 }
 
+.copy-button {
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--border-on-dark);
+    border-radius: var(--radius);
+
+    background: transparent;
+    color: var(--secondary);
+
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        opacity var(--transition);
+}
+
+.copy-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--secondary);
+}
+
+.copy-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.copy-button:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 3px;
+}
+
 .save-button:hover:not(:disabled) {
     background: var(--primary);
     color: white;
@@ -345,6 +388,53 @@ body {
 
 #note-editor .milkdown .ProseMirror code {
     font-family: "Fira Code", monospace;
+}
+
+#note-editor .milkdown .ProseMirror pre {
+    margin: 1.25em 0;
+    padding: 16px 18px;
+    overflow-x: auto;
+
+    background: #111827;
+    border: 1px solid #263244;
+    border-radius: 8px;
+    color: #e5e7eb;
+}
+
+#note-editor .milkdown .ProseMirror pre code {
+    color: inherit;
+}
+
+#note-editor .milkdown .milkdown-code-block {
+    --crepe-color-surface: #111827;
+    --crepe-color-on-surface: #e5e7eb;
+
+    background: #111827;
+    border: 1px solid #263244;
+    border-radius: 8px;
+}
+
+#note-editor .milkdown .milkdown-code-block .cm-editor,
+#note-editor .milkdown .milkdown-code-block .cm-gutters,
+#note-editor .milkdown .milkdown-code-block .cm-panel {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+#note-editor .milkdown .milkdown-code-block.latex-code-block {
+    --crepe-color-surface: #fffaf7;
+    --crepe-color-on-surface: #0a2947;
+
+    background: #fffaf7;
+    border-color: rgba(10, 41, 71, 0.12);
+    color: #0a2947;
+}
+
+#note-editor .milkdown .milkdown-code-block.latex-code-block .cm-editor,
+#note-editor .milkdown .milkdown-code-block.latex-code-block .cm-gutters,
+#note-editor .milkdown .milkdown-code-block.latex-code-block .cm-panel {
+    background: #fffaf7;
+    color: #0a2947;
 }
 
 #note-editor .milkdown .milkdown-toolbar {
@@ -653,6 +743,11 @@ body {
     .save-button {
         min-height: 39px;
         padding-inline: 15px;
+    }
+
+    .copy-button {
+        min-height: 39px;
+        padding-inline: 12px;
     }
 
     .editor-main {
