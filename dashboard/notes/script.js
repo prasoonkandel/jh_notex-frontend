@@ -14,6 +14,7 @@ const editorContainer = document.getElementById("note-editor");
 const noteDocument = document.getElementById("note-document");
 
 const saveButton = document.getElementById("save-button");
+const copyButton = document.getElementById("copy-button");
 const saveStatus = document.getElementById("save-status");
 const editorActions = document.getElementById("editor-actions");
 
@@ -35,6 +36,7 @@ let crepe = null;
 
 let ready = false;
 let saving = false;
+let copying = false;
 
 let savedTitle = "";
 let savedContent = "";
@@ -172,11 +174,52 @@ function hasUnsavedChanges() {
   return getTitle() !== savedTitle || crepe.getMarkdown() !== savedContent;
 }
 
+function getNoteMarkdown() {
+  const title = getTitle();
+  const content = crepe.getMarkdown().trim();
+
+  return [title ? `# ${title}` : "", content].filter(Boolean).join("\n\n");
+}
+
+async function copyNoteAsMarkdown() {
+  if (!ready || !crepe || copying) {
+    return;
+  }
+
+  if (!navigator.clipboard?.writeText) {
+    setStatus("Copy is not supported in this browser", "error");
+    return;
+  }
+
+  copying = true;
+  copyButton.disabled = true;
+
+  try {
+    await navigator.clipboard.writeText(getNoteMarkdown());
+    copyButton.querySelector("span").textContent = "Copied!";
+    setStatus("Copied as Markdown", "success");
+
+    window.setTimeout(() => {
+      copyButton.querySelector("span").textContent = "Copy Markdown";
+      copying = false;
+      updateSaveState();
+    }, 1400);
+  } catch (error) {
+    console.error("Failed to copy note:", error);
+    copying = false;
+    copyButton.disabled = false;
+    setStatus("Copy failed. Please try again.", "error");
+  }
+}
+
 function updateSaveState() {
   if (!ready || !crepe) {
     saveButton.disabled = true;
+    copyButton.disabled = true;
     return;
   }
+
+  copyButton.disabled = copying;
 
   const title = getTitle();
 
@@ -372,6 +415,7 @@ async function loadNote() {
 
     ready = true;
     titleInput.disabled = false;
+    copyButton.disabled = false;
 
     noteError.hidden = true;
     noteDocument.hidden = false;
@@ -461,6 +505,10 @@ titleInput.addEventListener("input", () => {
 
 saveButton.addEventListener("click", () => {
   void saveNote();
+});
+
+copyButton.addEventListener("click", () => {
+  void copyNoteAsMarkdown();
 });
 
 document.addEventListener("keydown", (event) => {
