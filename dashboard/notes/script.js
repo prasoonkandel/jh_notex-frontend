@@ -125,8 +125,23 @@ function convertH1ToH2(transaction, documentNode) {
   return changed ? transaction : null;
 }
 
+function updateCodeBlockClasses(view) {
+  editorContainer
+    .querySelectorAll(".milkdown-code-block")
+    .forEach((element) => {
+      const position = view.posAtDOM(element, 0);
+      const node = view.state.doc.nodeAt(position);
+      const isLatex = node?.attrs.language?.toLowerCase() === "latex";
+
+      element.classList.toggle("latex-code-block", isLatex);
+    });
+}
+
 const preventH1Plugin = $prose(() => {
   return new Plugin({
+    view: () => ({
+      update: updateCodeBlockClasses,
+    }),
     appendTransaction(transactions, oldState, newState) {
       if (!transactions.some((transaction) => transaction.docChanged)) {
         return null;
@@ -239,6 +254,7 @@ async function initializeEditor(markdown) {
           { label: "H6", level: 6 },
         ],
       },
+
     },
   });
 
@@ -254,6 +270,10 @@ async function initializeEditor(markdown) {
   });
 
   await crepe.create();
+
+  crepe.editor.action((ctx) => {
+    updateCodeBlockClasses(ctx.get(editorViewCtx));
+  });
 
   const originalMarkdown = crepe.getMarkdown();
 
