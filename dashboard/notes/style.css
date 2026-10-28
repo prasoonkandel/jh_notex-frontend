@@ -141,6 +141,49 @@ body {
         opacity var(--transition);
 }
 
+.copy-button {
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--border-on-dark);
+    border-radius: var(--radius);
+
+    background: transparent;
+    color: var(--secondary);
+
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        opacity var(--transition);
+}
+
+.copy-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--secondary);
+}
+
+.copy-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.copy-button:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 3px;
+}
+
 .save-button:hover:not(:disabled) {
     background: var(--primary);
     color: white;
@@ -700,6 +743,11 @@ body {
     .save-button {
         min-height: 39px;
         padding-inline: 15px;
+    }
+
+    .copy-button {
+        min-height: 39px;
+        padding-inline: 12px;
     }
 
     .editor-main {
