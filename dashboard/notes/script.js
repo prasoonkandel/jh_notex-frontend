@@ -139,6 +139,21 @@ function updateCodeBlockClasses(view) {
     });
 }
 
+function preserveScrollDuringToolbarAction(event) {
+  const target = event.target;
+
+  if (!(target instanceof Element) || !target.closest(".milkdown-toolbar")) {
+    return;
+  }
+
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+
+  window.requestAnimationFrame(() => {
+    window.scrollTo(scrollX, scrollY);
+  });
+}
+
 const preventH1Plugin = $prose(() => {
   return new Plugin({
     view: () => ({
@@ -502,6 +517,12 @@ titleInput.addEventListener("input", () => {
 
   updateSaveState();
 });
+
+editorContainer.addEventListener(
+  "pointerdown",
+  preserveScrollDuringToolbarAction,
+  true,
+);
 
 saveButton.addEventListener("click", () => {
   void saveNote();

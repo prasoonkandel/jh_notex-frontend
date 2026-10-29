@@ -439,6 +439,7 @@ body {
 
 #note-editor .milkdown .milkdown-toolbar {
     padding: 5px;
+    max-width: min(100%, calc(100vw - 24px));
 
     background: #fffaf7;
     border: 1px solid rgba(10, 41, 71, 0.12);
@@ -447,6 +448,10 @@ body {
     box-shadow:
         0 10px 30px rgba(10, 41, 71, 0.13),
         0 2px 5px rgba(10, 41, 71, 0.05);
+}
+
+#note-editor .milkdown .milkdown-toolbar .toolbar-item {
+    flex: 0 0 34px;
 }
 
 #note-editor .milkdown .milkdown-toolbar .toolbar-item {
@@ -714,6 +719,33 @@ body {
 
     #note-title {
         font-size: clamp(2rem, 8vw, 2.7rem);
+    }
+
+    #note-editor .milkdown .milkdown-toolbar {
+        max-width: calc(100vw - 24px);
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        touch-action: pan-x;
+    }
+
+    #note-editor .milkdown .milkdown-toolbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    #note-editor .milkdown .milkdown-top-bar {
+        max-width: 100%;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+    }
+
+    #note-editor .milkdown .milkdown-top-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    #note-editor .milkdown .ProseMirror {
+        overflow-wrap: anywhere;
     }
 }
 
