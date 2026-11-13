@@ -67,7 +67,9 @@ function showNotes(notes) {
   toolbar.hidden = false;
   emptyState.hidden = true;
 
-  notes.forEach((note) => {
+  [...notes]
+    .sort((firstNote, secondNote) => secondNote.id - firstNote.id)
+    .forEach((note) => {
     const card = document.createElement("article");
 
     card.className = "note-card";
@@ -156,7 +158,7 @@ function showNotes(notes) {
         }
       });
     notesList.appendChild(card);
-  });
+      });
 }
 
 async function fetchUser() {
