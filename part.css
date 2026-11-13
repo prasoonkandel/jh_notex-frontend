@@ -1,0 +1,180 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f6f2;
+    color: #222;
+}
+
+
+/* Header */
+header {
+    height: 75px;
+    padding: 0 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: whitesmoke;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav a:hover {
+    color: #777;
+}
+
+
+/* Sign Up Button */
+.signup {
+    text-decoration: none;
+    color: white;
+    background: #222;
+
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.signup:hover {
+    background: #444;
+}
+
+
+/* Hero */
+.hero {
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.small-text {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #777;
+}
+
+.hero h2 {
+    font-size: 60px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+}
+
+.signup-btn {
+    background: #222;
+    color: white;
+}
+
+.learn-btn {
+    border: 1px solid #222;
+    color: #222;
+    background: white;
+}
+
+.signup-btn:hover {
+    background: #444;
+}
+
+.learn-btn:hover {
+    background: #eee;
+}
+
+
+/* About */
+.about {
+    padding: 100px 20px;
+    text-align: center;
+    background: white;
+}
+
+.about h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    max-width: 550px;
+    margin: auto;
+    color: #666;
+    line-height: 1.6;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    background: #222;
+    color: white;
+}
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero h2 {
+        font-size: 42px;
+    }
+
+    .description {
+        padding: 0 20px;
+    }
+}
+
